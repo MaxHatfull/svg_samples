@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Animation</title>
+</head>
+<body>
+<h1>Animation</h1>
+
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+
+    <path id="path"
+          d=""
+          fill="transparent"
+          stroke="orange"
+    />
+</svg>
+
+<script type="text/javascript">
+    const setPathString = (t) => {
+        const path = document.getElementById("path");
+        const controlPointHeight = 250 * Math.sin(t / 300) + 250;
+        const pathString = `M 10 250 Q 125 ${controlPointHeight}, 250 250 T 490 250`;
+        path.setAttribute("d", pathString);
+    }
+    let t = 0;
+    setInterval(() => {
+        setPathString(t);
+        t += 10;
+    }, 10);
+</script>
+</body>
+</html>
+
